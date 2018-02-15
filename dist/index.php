@@ -1,3 +1,115 @@
+<?php
+
+//require '../database.php';
+
+////change the name of the database because in database.php I have it to 'world'
+//$db_database = 'portfolio';
+////logic to handle the incoming data post
+//
+//var_dump($_POST);
+//
+////gather data from post
+//$first_name = $_POST[‘first_name’];
+//$last_name = $_POST[‘last_name’];
+//$email = $_POST[‘email’];
+//$phone = $_POST[‘phone’];
+//$text = $_POST[‘text’];
+//
+//// save the data
+//$query = "
+    //INSERT
+    //INTO `messages`
+    //(`first_namee`, `last_name`, `email`, `phone`, `text`)
+    //VALUES
+    //(?,?,?,?,?)
+//";
+//db_query($query)
+
+//redirect back to where user came from
+
+
+/**
+ * Define variables and set to empty values
+ * Define error variables and set to empty values
+ */
+
+$firstName = $lastName = $email = $phoneNumber = $message = "";
+$firstNameErr = $lastNameErr = $emailErr = $phoneNumberErr = $messageErr = "";
+
+/**
+ *
+ */
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $firstName = test_input($_POST["firstName"]);
+  $lastName = test_input($_POST["lastName"]);
+  $email = test_input($_POST["email"]);
+  $phoneNumber = test_input($_POST["phoneNumber"]);
+  $message = test_input($_POST["message"]);
+}
+
+/**
+ * Remove unnecessary characters
+ */
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+
+/**
+ * Error messages for empty fields and form validation
+ */
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (empty($_POST["firstName"])) {
+    $firstNameErr = "First name is required";
+  } else {
+    $firstName = test_input($_POST["firstName"]);
+    if (!preg_match("/^[a-zA-Z ]*$/",$firstName)) {
+        $firstNameErr = "Please insert letters and white space";
+      }
+  }
+
+  if (empty($_POST["lastName"])) {
+    $lastNameErr = "Last name is required";
+  } else {
+    $lastName = test_input($_POST["lastName"]);
+    if (!preg_match("/^[a-zA-Z ]*$/",$lastName)) {
+        $lastNameErr = "Please insert letters and white space";
+      }
+  }
+
+  if (empty($_POST["email"])) {
+    $emailErr = "Email is required";
+  } else {
+    $email = test_input($_POST["email"]);
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $emailErr = "Please insert a valid email address";
+      }
+  }
+
+  if (empty($_POST["phoneNumber"])) {
+    $phoneNumber= "";
+  } else {
+    $phoneNumber = test_input($_POST["phoneNumber"]);
+    if (!filter_var($phoneNumber, FILTER_VALIDATE_INT)) {
+        $phoneNumberErr = "Please insert a valid number";
+      }
+  }
+
+  if (empty($_POST["message"])) {
+    $messageErr = "Message is required";
+  } else {
+    $message = test_input($_POST["message"]);
+  }
+
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,9 +120,6 @@
     <title>Mireille Bobbert Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-
-
-
 </head>
 
 <body>
@@ -19,7 +128,7 @@
     <nav class="navbar navbar-expand-lg navbar-light">
         <!--<a class="navbar-brand" href="#">Navbar</a>-->
         <a href="index.html">
-            <img src="img/mb-logo-99.png" width="30" height="30" alt="" alt="My portfolio">
+            <img src="img/mb-logo-99.png" width="30" height="30" alt="My portfolio">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -28,10 +137,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <div class="container">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
+                    <li class="nav-item header-home">
                         <a class="nav-link" href="#home">Home <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item header-skills">
                         <a class="nav-link" href="#skills">Skills</a>
                     </li>
                     <li class="nav-item">
@@ -148,17 +257,6 @@
                 <br/>
 
                 <div class="progress">
-                    <div class="progress-bar"  id="bar-React" role="progressbar">
-                    <!--<div class="progress-bar"  id="bar-React" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100">-->
-                        <span class="sr-only">progress React</span>
-                    </div>
-                    <span class="progress-type">React</span>
-                    <span class="progress-completed">80%</span>
-                </div>
-
-                <br/>
-
-                <div class="progress">
                     <div class="progress-bar"  id="bar-jQuery" role="progressbar">
                     <!--<div class="progress-bar"  id="bar-jQuery" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100">-->
                         <span class="sr-only">progress jQuery</span>
@@ -175,6 +273,17 @@
                         <span class="sr-only">progress PHP</span>
                     </div>
                     <span class="progress-type">PHP</span>
+                    <span class="progress-completed">80%</span>
+                </div>
+
+                <br/>
+
+                <div class="progress">
+                    <div class="progress-bar"  id="bar-React" role="progressbar">
+                    <!--<div class="progress-bar"  id="bar-React" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100">-->
+                        <span class="sr-only">progress React</span>
+                    </div>
+                    <span class="progress-type">React</span>
                     <span class="progress-completed">80%</span>
                 </div>
 
@@ -218,7 +327,7 @@
                     <img class="card-img-top" src="img/counter.jpg" alt="Hipster Coffee">
                     <div class="card-body">
                         <h3 class="card-title">Generic Hipster Coffee</h3>
-                        <p class="card-text">Created a fully-functional 5-page website for Generic Hipster Coffee.</p>
+                        <p class="card-text">A fully-functional 5-page website for Generic Hipster Coffee.</p>
                         <h4>Tech Stack:</h4>
                             <ul class="list-unstyled">
                                 <li class="badge badge-secondary">HTML</li>
@@ -227,26 +336,25 @@
                                 <li class="badge badge-secondary">Gulp</li>
                                 <li class="badge badge-secondary">Bootstrap</li>
                             </ul>
-                            <button type="button" class="btn btn-primary btn-lg btn-block">View live</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-block">Order coffee</button>
                     </div>
                     </article>
                 </div>
 
                 <div class="col-sm-6 col-md-4 my-portfolio-item">
                     <article class="card mb-4">
-                        <img class="card-img-top" src="http://satyr.io/200x150/grey" alt="">
+                        <img class="card-img-top" src="img/drench.png" alt="Drench Board Game">
                         <div class="card-body">
-                            <h3 class="card-title">Title</h3>
-                            <p>Description for hackathon project #1</p>
+                            <h3 class="card-title">Drench board game</h3>
+                            <p>An addictive board game challenging you to drench the board 1 color within 30 trials.</p>
                             <h4>Tech Stack:</h4>
                             <ul class="list-unstyled">
                                 <li class="badge badge-secondary">HTML</li>
                                 <li class="badge badge-secondary">CSS</li>
-                                <li class="badge badge-secondary">Sass</li>
-                                <li class="badge badge-secondary">Gulp</li>
-                                <li class="badge badge-secondary">Bootstrap</li>
+                                <li class="badge badge-secondary">Javascript</li>
+                                <li class="badge badge-secondary">jQuery</li>
                             </ul>
-                            <button type="button" class="btn btn-primary btn-lg btn-block">View live</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-block">Play</button>
                         </div>
                     </article>
                 </div>
@@ -382,37 +490,39 @@
 
     <section id="contact" class="contact p-4">
 
-        <div class="container">
+    <div class="container">
 
-            <h2 class="mb-4">CONTACT ME</h2>
-            <form>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="inputFirstname">First name</label>
-                        <input type="text" class="form-control" id="inputFirstname">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="inputLastname">Last name</label>
-                        <input type="text" class="form-control" id="inputLastname">
-                    </div>
+        <h2 class="mb-4">CONTACT ME</h2>
+
+        <form method="post" action="">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputFirstname">First name <span class="error">* <?php echo $firstNameErr;?></span></label>
+                    <input type="text" class="form-control" name="firstName" id="inputFirstname">
                 </div>
-                <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputLastname">Last name <span class="error">* <?php echo $lastNameErr;?></span></label>
+                    <input type="text" class="form-control" name="lastName" id="inputLastname">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputEmail">Email <span class="error">* <?php echo $emailErr;?></span></label>
+                    <input type="email" class="form-control" name="email" id="inputEmail">
+                </div>
                     <div class="form-group col-md-6">
-                        <label for="inputEmail">Email</label>
-                        <input type="email" class="form-control" id="inputEmail" >
-                    </div>
-                        <div class="form-group col-md-6">
-                        <label for="inputPhone">Phone</label>
-                        <input type="tel" class="form-control" id="inputPhone" placeholder="+31 67 777 7777">
-                    </div>
+                    <label for="inputPhone">Phone</label>
+                    <input type="tel" class="form-control" name="phoneNumber" id="inputPhone" placeholder="+31 67 777 7777">
                 </div>
-                <div class="form-group">
-                    <label for="inputMessage">Message</label>
-                    <textarea class="form-control" rows="5" id="inputMessage" placeholder="What's up?"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary btn-lg btn-block">Send message  <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-            </form>
-        </div>
+            </div>
+            <div class="form-group">
+                <label for="inputMessage">Message <span class="error">* <?php echo $messageErr;?></span></label>
+                <textarea class="form-control" rows="5" name="message" id="inputMessage" placeholder="What's up?"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg btn-block" name="submit">Send message  <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+        </form>
+        <span class="required">* required field.</span>
+    </div>
     </section>
 
     <section id="hello" class="hello p-4">

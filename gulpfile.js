@@ -16,14 +16,14 @@ gulp.task('css:compile', ['css:clean'], function() {
 			.pipe(gulp.dest('dist/css'));
 });
 
-// Delete all HTML files
-gulp.task('html:clean', function() {
+// Delete all PHP files
+gulp.task('php:clean', function() {
 	return del('dist/**/*.html', { force: true });
 });
 
-// Copy all HTML files
-gulp.task('html:copy', ['html:clean'], function() {
-	return gulp.src('src/**/*.html')
+// Copy all PHP files
+gulp.task('php:copy', ['php:clean'], function() {
+	return gulp.src('src/**/*.php')
 		.pipe(gulp.dest('dist/'));
 });
 
@@ -42,7 +42,7 @@ gulp.task('js:copy', ['js:clean'], function() {
 gulp.task('img:clean', function() {
 	return del([
 			'dist/**/*', // delete all files
-			'!dist/**/*.html', // except html
+			'!dist/**/*.php', // except html
 			'!dist/**/*.css' // except css
 	], { force: true });
 });
@@ -52,10 +52,10 @@ gulp.task('img:copy', ['img:clean'], function() {
 			.pipe(gulp.dest('dist/img'));
 });
 
-gulp.task('build', ['css:compile', 'html:copy', 'js:copy', 'img:copy']);
+gulp.task('build', ['css:compile', 'php:copy', 'js:copy', 'img:copy']);
 
 gulp.task('develop', ['build'], function() {
 	gulp.watch('src/scss/*', ['css:compile']); // watch for changes in SCSS
-	gulp.watch('src/**/*.html', ['html:copy']); // watch for changes in HTML
+	gulp.watch('src/**/*.php', ['php:copy']); // watch for changes in PHP
 	gulp.watch('src/img/**/*', ['img:copy']); // watch for changes in static files
 });
