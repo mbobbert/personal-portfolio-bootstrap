@@ -76,14 +76,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    * Send input fields to mysql server in case fields are filled in
    */
 
-  if ($firstName == " " || !$lastname == " " || $email == " " || $message == " ")
+  if ($firstName == " " || $lastName == " " || $email == " " || $message == " ")
      {
         header('Location: ?success=no');
     } else {
         $statement = $dbh->prepare('INSERT INTO messages (`first_name`, `last_name`, `email`, `phone`, `message`) VALUES (?,?,?,?,?');
         $result = $statement->execute([$firstName, $lastName, $email, $phoneNumber, $message]);
         var_dump($result);
-        die();
+
         header('Location: ?success=yes');
     }
 }
