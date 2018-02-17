@@ -1,32 +1,9 @@
 <?php
 
-//require '../database.php';
-
-////change the name of the database because in database.php I have it to 'world'
-//$db_database = 'portfolio';
-////logic to handle the incoming data post
-//
-//var_dump($_POST);
-//
-////gather data from post
-//$first_name = $_POST[‘first_name’];
-//$last_name = $_POST[‘last_name’];
-//$email = $_POST[‘email’];
-//$phone = $_POST[‘phone’];
-//$text = $_POST[‘text’];
-//
-//// save the data
-//$query = "
-    //INSERT
-    //INTO `messages`
-    //(`first_namee`, `last_name`, `email`, `phone`, `text`)
-    //VALUES
-    //(?,?,?,?,?)
-//";
-//db_query($query)
-
-//redirect back to where user came from
-
+/**
+ * Initialization
+ */
+$dbh = new PDO('mysql:host=localhost;dbname=portfolio', 'root', 'rootroot');
 
 /**
  * Define variables and set to empty values
@@ -36,17 +13,6 @@
 $firstName = $lastName = $email = $phoneNumber = $message = "";
 $firstNameErr = $lastNameErr = $emailErr = $phoneNumberErr = $messageErr = "";
 
-/**
- *
- */
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $firstName = test_input($_POST["firstName"]);
-  $lastName = test_input($_POST["lastName"]);
-  $email = test_input($_POST["email"]);
-  $phoneNumber = test_input($_POST["phoneNumber"]);
-  $message = test_input($_POST["message"]);
-}
 
 /**
  * Remove unnecessary characters
@@ -64,19 +30,19 @@ function test_input($data) {
  */
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (empty($_POST["firstName"])) {
+  if (empty($_POST["first_name"])) {
     $firstNameErr = "First name is required";
   } else {
-    $firstName = test_input($_POST["firstName"]);
+    $firstName = test_input($_POST["first_name"]);
     if (!preg_match("/^[a-zA-Z ]*$/",$firstName)) {
         $firstNameErr = "Please insert letters and white space";
       }
   }
 
-  if (empty($_POST["lastName"])) {
+  if (empty($_POST["last_name"])) {
     $lastNameErr = "Last name is required";
   } else {
-    $lastName = test_input($_POST["lastName"]);
+    $lastName = test_input($_POST["last_name"]);
     if (!preg_match("/^[a-zA-Z ]*$/",$lastName)) {
         $lastNameErr = "Please insert letters and white space";
       }
@@ -91,10 +57,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       }
   }
 
-  if (empty($_POST["phoneNumber"])) {
+  if (empty($_POST["phone"])) {
     $phoneNumber= "";
   } else {
-    $phoneNumber = test_input($_POST["phoneNumber"]);
+    $phoneNumber = test_input($_POST["phone"]);
     if (!filter_var($phoneNumber, FILTER_VALIDATE_INT)) {
         $phoneNumberErr = "Please insert a valid number";
       }
@@ -106,8 +72,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = test_input($_POST["message"]);
   }
 
+  /**
+   * Send input fields to mysql server in case fields are filled in
+   */
+
+  if ($firstName == " " || !$lastname == " " || $email == " " || $message == " ")
+     {
+        header('Location: ?success=no');
+    } else {
+        $statement = $dbh->prepare('INSERT INTO messages (`first_name`, `last_name`, `email`, `phone`, `message`) VALUES (?,?,?,?,?');
+        $result = $statement->execute([$firstName, $lastName, $email, $phoneNumber, $message]);
+        var_dump($result);
+        die();
+        header('Location: ?success=yes');
+    }
 }
 
+/**
+ * Template for outcome 'success'
+ */
+$success = filter_input(INPUT_GET, 'success');
+
+var_dump($_POST);
 ?>
 
 <!DOCTYPE html>
@@ -124,6 +110,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
     <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <?php if ($success =='no') echo '<p style="color: red">We were unable to send your message.</p>'; ?>
+    <?php if ($success =='yes') echo '<p style="color: green">Your message was succesfully sent.</p>'; ?>
 
     <nav class="navbar navbar-expand-lg navbar-light">
         <!--<a class="navbar-brand" href="#">Navbar</a>-->
@@ -494,15 +483,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <h2 class="mb-4">CONTACT ME</h2>
 
+
         <form method="post" action="">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputFirstname">First name <span class="error">* <?php echo $firstNameErr;?></span></label>
-                    <input type="text" class="form-control" name="firstName" id="inputFirstname">
+                    <input type="text" class="form-control" name="first_name" id="inputFirstname">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputLastname">Last name <span class="error">* <?php echo $lastNameErr;?></span></label>
-                    <input type="text" class="form-control" name="lastName" id="inputLastname">
+                    <input type="text" class="form-control" name="last_name" id="inputLastname">
                 </div>
             </div>
             <div class="form-row">
@@ -512,7 +502,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                     <div class="form-group col-md-6">
                     <label for="inputPhone">Phone</label>
-                    <input type="tel" class="form-control" name="phoneNumber" id="inputPhone" placeholder="+31 67 777 7777">
+                    <input type="tel" class="form-control" name="phone" id="inputPhone" placeholder="+31 67 777 7777">
                 </div>
             </div>
             <div class="form-group">
