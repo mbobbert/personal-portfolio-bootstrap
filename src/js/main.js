@@ -19,11 +19,11 @@ function progress(barID, value) {
 $('#progress-evolution').on('appear', function() {
     progress('#bar-HTML', '80%');
     progress('#bar-CSS', '80%');
-    progress('#bar-Javascript', '80%');
-    progress('#bar-React', '80%');
-    progress('#bar-jQuery', '80%');
-    progress('#bar-PHP', '80%');
-    progress('#bar-Laravel', '80%');
+    progress('#bar-Javascript', '75%');
+    progress('#bar-React', '70%');
+    progress('#bar-jQuery', '75%');
+    progress('#bar-PHP', '85%');
+    progress('#bar-Laravel', '85%');
     progress('#bar-UX', '80%');
 });
 

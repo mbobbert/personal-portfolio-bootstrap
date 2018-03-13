@@ -1,9 +1,11 @@
 <?php
 
+ini_set('display_errors', 'On');
+error_reporting(E_ALL);
 /**
  * Initialization
  */
-$dbh = new PDO('mysql:host=localhost;dbname=portfolio', 'root', 'rootroot');
+$dbh = new PDO('mysql:host=localhost;dbname=mireilleb', 'mireilleb', 'wpwDoDV1_');
 
 /**
  * Define variables and set to empty values
@@ -240,7 +242,7 @@ var_dump($_POST);
                         <span class="sr-only">progress Javascript</span>
                     </div>
                     <span class="progress-type">Javascript</span>
-                    <span class="progress-completed">80%</span>
+                    <span class="progress-completed">75%</span>
                 </div>
 
                 <br/>
@@ -251,7 +253,7 @@ var_dump($_POST);
                         <span class="sr-only">progress jQuery</span>
                     </div>
                     <span class="progress-type">jQuery</span>
-                    <span class="progress-completed">80%</span>
+                    <span class="progress-completed">75%</span>
                 </div>
 
                 <br/>
@@ -262,7 +264,7 @@ var_dump($_POST);
                         <span class="sr-only">progress PHP</span>
                     </div>
                     <span class="progress-type">PHP</span>
-                    <span class="progress-completed">80%</span>
+                    <span class="progress-completed">85%</span>
                 </div>
 
                 <br/>
@@ -273,7 +275,7 @@ var_dump($_POST);
                         <span class="sr-only">progress React</span>
                     </div>
                     <span class="progress-type">React</span>
-                    <span class="progress-completed">80%</span>
+                    <span class="progress-completed">70%</span>
                 </div>
 
                 <br/>
@@ -284,7 +286,7 @@ var_dump($_POST);
                         <span class="sr-only">progress Laravel</span>
                     </div>
                     <span class="progress-type">Laravel</span>
-                    <span class="progress-completed">80%</span>
+                    <span class="progress-completed">85%</span>
                 </div>
 
                 <br/>
@@ -316,7 +318,7 @@ var_dump($_POST);
                     <img class="card-img-top" src="img/counter.jpg" alt="Hipster Coffee">
                     <div class="card-body">
                         <h3 class="card-title">Generic Hipster Coffee</h3>
-                        <p class="card-text">A fully-functional 5-page website for Generic Hipster Coffee.</p>
+                        <p class="card-text">A fully-functional 5-page website for Generic Hipster Coffee. Part of a Bootstrap hackathon.</p>
                         <h4>Tech Stack:</h4>
                             <ul class="list-unstyled">
                                 <li class="badge badge-secondary">HTML</li>
@@ -325,7 +327,7 @@ var_dump($_POST);
                                 <li class="badge badge-secondary">Gulp</li>
                                 <li class="badge badge-secondary">Bootstrap</li>
                             </ul>
-                            <button type="button" class="btn btn-primary btn-lg btn-block">Order coffee</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-block"><a href="http://generic-hipster-coffee.mireilleb.data4you.cz/homepage.html">Check the menu</a></button>
                     </div>
                     </article>
                 </div>
@@ -343,7 +345,23 @@ var_dump($_POST);
                                 <li class="badge badge-secondary">Javascript</li>
                                 <li class="badge badge-secondary">jQuery</li>
                             </ul>
-                            <button type="button" class="btn btn-primary btn-lg btn-block">Play</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-block"><a href="http://drench.mireilleb.data4you.cz/dist/drench.html">Play</a></button>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-sm-6 col-md-4 my-portfolio-item">
+                    <article class="card mb-4">
+                    <img class="card-img-top" src="img/cine-booking.png" alt="cinema booking system">
+                        <div class="card-body">
+                            <h3 class="card-title">Cine Booking System</h3>
+                            <p>A cinema booking system for cinema personnel. Made as part of a PHP hackathon.</p>
+                            <h4>Tech Stack:</h4>
+                            <ul class="list-unstyled">
+                                <li class="badge badge-secondary">PHP</li>
+                                <li class="badge badge-secondary">SQL</li>
+                            </ul>
+                            <button type="button" class="btn btn-primary btn-lg btn-block">Book seat</button>
                         </div>
                     </article>
                 </div>
@@ -352,17 +370,14 @@ var_dump($_POST);
                     <article class="card mb-4">
                     <img class="card-img-top" src="http://satyr.io/200x150/grey" alt="">
                         <div class="card-body">
-                            <h3 class="card-title">Title</h3>
-                            <p>Description for hackathon project #1</p>
+                            <h3 class="card-title">Laravel project</h3>
+                            <p>To be added</p>
                             <h4>Tech Stack:</h4>
                             <ul class="list-unstyled">
-                                <li class="badge badge-secondary">HTML</li>
-                                <li class="badge badge-secondary">CSS</li>
-                                <li class="badge badge-secondary">Sass</li>
-                                <li class="badge badge-secondary">Gulp</li>
-                                <li class="badge badge-secondary">Bootstrap</li>
+                                <li class="badge badge-secondary">Laravel</li>
+                                <li class="badge badge-secondary">SQL</li>
                             </ul>
-                            <button type="button" class="btn btn-primary btn-lg btn-block">View code</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-block">N/A</button>
                         </div>
                     </article>
                 </div>
@@ -371,55 +386,30 @@ var_dump($_POST);
                     <article class="card mb-4">
                     <img class="card-img-top" src="http://satyr.io/200x150/grey" alt="">
                         <div class="card-body">
-                            <h3 class="card-title">Title</h3>
-                            <p>Description for hackathon project #1</p>
+                            <h3 class="card-title">React project</h3>
+                            <p>To be added</p>
                             <h4>Tech Stack:</h4>
                             <ul class="list-unstyled">
-                                <li class="badge badge-secondary">HTML</li>
-                                <li class="badge badge-secondary">CSS</li>
-                                <li class="badge badge-secondary">Sass</li>
-                                <li class="badge badge-secondary">Gulp</li>
-                                <li class="badge badge-secondary">Bootstrap</li>
+                                <li class="badge badge-secondary">React</li>
                             </ul>
-                            <button type="button" class="btn btn-primary btn-lg btn-block">View code</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-block">N/A</button>
                         </div>
                     </article>
                 </div>
 
                 <div class="col-sm-6 col-md-4 my-portfolio-item">
                     <article class="card mb-4">
-                    <img class="card-img-top" src="http://satyr.io/200x150/grey" alt="">
+                    <img class="card-img-top" src="img/mask.PNG" alt="mask">
                         <div class="card-body">
-                            <h3 class="card-title">Title</h3>
-                            <p>Description for hackathon project #1</p>
+                            <h3 class="card-title">Final project</h3>
+                            <p>Our beauty review aggregator aggregates beauty product ratings,cutting the decision time for career women to purchase a face serum. Expected launch date: 2 April 2018.</p>
                             <h4>Tech Stack:</h4>
                             <ul class="list-unstyled">
-                                <li class="badge badge-secondary">HTML</li>
-                                <li class="badge badge-secondary">CSS</li>
-                                <li class="badge badge-secondary">Sass</li>
-                                <li class="badge badge-secondary">Gulp</li>
-                                <li class="badge badge-secondary">Bootstrap</li>
+                                <li class="badge badge-secondary">PHP</li>
+                                <li class="badge badge-secondary">Laravel</li>
+                                <li class="badge badge-secondary">React</li>
                             </ul>
-                            <button type="button" class="btn btn-primary btn-lg btn-block">View code</button>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="col-sm-6 col-md-4 my-portfolio-item">
-                    <article class="card mb-4">
-                    <img class="card-img-top" src="http://satyr.io/200x150/grey" alt="">
-                        <div class="card-body">
-                            <h3 class="card-title">Title</h3>
-                            <p>Description for hackathon project #1</p>
-                            <h4>Tech Stack:</h4>
-                            <ul class="list-unstyled">
-                                <li class="badge badge-secondary">HTML</li>
-                                <li class="badge badge-secondary">CSS</li>
-                                <li class="badge badge-secondary">Sass</li>
-                                <li class="badge badge-secondary">Gulp</li>
-                                <li class="badge badge-secondary">Bootstrap</li>
-                            </ul>
-                            <button type="button" class="btn btn-primary btn-lg btn-block">View code</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-block"><a href="https://github.com/fairywhyte/beauty-review-aggregator">View code</a></button>
                         </div>
                     </article>
                 </div>
