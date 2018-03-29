@@ -355,61 +355,29 @@ var_dump($_POST);
                     <img class="card-img-top" src="img/cine-booking.png" alt="cinema booking system">
                         <div class="card-body">
                             <h3 class="card-title">Cine Booking System</h3>
-                            <p>A cinema booking system for cinema personnel. Made as part of a PHP hackathon.</p>
+                            <p>A cinema booking system for cinema personnel. Part of a PHP hackathon.</p>
                             <h4>Tech Stack:</h4>
                             <ul class="list-unstyled">
                                 <li class="badge badge-secondary">PHP</li>
                                 <li class="badge badge-secondary">SQL</li>
                             </ul>
-                            <button type="button" class="btn btn-primary btn-lg btn-block">Book seat</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-block"><a href="http://mireilleb.data4you.cz/cinema-booking/dist/">Book seat</button>
                         </div>
                     </article>
                 </div>
 
                 <div class="col-sm-6 col-md-4 my-portfolio-item">
                     <article class="card mb-4">
-                    <img class="card-img-top" src="http://satyr.io/200x150/grey" alt="">
-                        <div class="card-body">
-                            <h3 class="card-title">Laravel project</h3>
-                            <p>To be added</p>
-                            <h4>Tech Stack:</h4>
-                            <ul class="list-unstyled">
-                                <li class="badge badge-secondary">Laravel</li>
-                                <li class="badge badge-secondary">SQL</li>
-                            </ul>
-                            <button type="button" class="btn btn-primary btn-lg btn-block">N/A</button>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="col-sm-6 col-md-4 my-portfolio-item">
-                    <article class="card mb-4">
-                    <img class="card-img-top" src="http://satyr.io/200x150/grey" alt="">
-                        <div class="card-body">
-                            <h3 class="card-title">React project</h3>
-                            <p>To be added</p>
-                            <h4>Tech Stack:</h4>
-                            <ul class="list-unstyled">
-                                <li class="badge badge-secondary">React</li>
-                            </ul>
-                            <button type="button" class="btn btn-primary btn-lg btn-block">N/A</button>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="col-sm-6 col-md-4 my-portfolio-item">
-                    <article class="card mb-4">
-                    <img class="card-img-top" src="img/mask.PNG" alt="mask">
+                    <img class="card-img-top" src="img/laravellehomepage" alt="la ravelle">
                         <div class="card-body">
                             <h3 class="card-title">Final project</h3>
-                            <p>Our beauty review aggregator aggregates beauty product ratings,cutting the decision time for career women to purchase a face serum. Expected launch date: 2 April 2018.</p>
+                            <p>La Ravelle aggregates beauty product ratings, cutting the decision time for career women to purchase a face serum.</p>
                             <h4>Tech Stack:</h4>
                             <ul class="list-unstyled">
                                 <li class="badge badge-secondary">PHP</li>
                                 <li class="badge badge-secondary">Laravel</li>
-                                <li class="badge badge-secondary">React</li>
                             </ul>
-                            <button type="button" class="btn btn-primary btn-lg btn-block"><a href="https://github.com/fairywhyte/beauty-review-aggregator">View code</a></button>
+                            <button type="button" class="btn btn-primary btn-lg btn-block"><a href="http://beauty-review-aggregator.data4you.cz/home">View website</a></button>
                         </div>
                     </article>
                 </div>
