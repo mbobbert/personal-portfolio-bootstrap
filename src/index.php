@@ -368,7 +368,7 @@ var_dump($_POST);
 
                 <div class="col-sm-6 col-md-4 my-portfolio-item">
                     <article class="card mb-4">
-                    <img class="card-img-top" src="img/laravellehomepage" alt="la ravelle">
+                    <img class="card-img-top" src="img/laravellehomepage.png" alt="la ravelle">
                         <div class="card-body">
                             <h3 class="card-title">Final project</h3>
                             <p>La Ravelle aggregates beauty product ratings, cutting the decision time for career women to purchase a face serum.</p>
