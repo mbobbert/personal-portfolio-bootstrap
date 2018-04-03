@@ -264,7 +264,7 @@ $success = filter_input(INPUT_GET, 'success');
                         <span class="sr-only">progress PHP</span>
                     </div>
                     <span class="progress-type">PHP</span>
-                    <span class="progress-completed">85%</span>
+                    <span class="progress-completed">80%</span>
                 </div>
 
                 <br/>
@@ -275,7 +275,7 @@ $success = filter_input(INPUT_GET, 'success');
                         <span class="sr-only">progress React</span>
                     </div>
                     <span class="progress-type">React</span>
-                    <span class="progress-completed">70%</span>
+                    <span class="progress-completed">75%</span>
                 </div>
 
                 <br/>
@@ -286,7 +286,7 @@ $success = filter_input(INPUT_GET, 'success');
                         <span class="sr-only">progress Laravel</span>
                     </div>
                     <span class="progress-type">Laravel</span>
-                    <span class="progress-completed">85%</span>
+                    <span class="progress-completed">80%</span>
                 </div>
 
                 <br/>
