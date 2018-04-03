@@ -1,4 +1,4 @@
-/phploy.*
 /node_modules
 /package-lock.json
+/phploy.*
 /src
