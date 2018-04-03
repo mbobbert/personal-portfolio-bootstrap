@@ -345,7 +345,7 @@ $success = filter_input(INPUT_GET, 'success');
                                 <li class="badge badge-secondary">Javascript</li>
                                 <li class="badge badge-secondary">jQuery</li>
                             </ul>
-                            <button type="button" class="btn btn-primary btn-lg btn-block"><a href="http://drench.mireilleb.data4you.cz/dist/drench.html">Play</a></button>
+                            <button type="button" class="btn btn-primary btn-lg btn-block"><a href="http://mireilleb.data4you.cz/drench/dist/drench.html">Play</a></button>
                         </div>
                     </article>
                 </div>
