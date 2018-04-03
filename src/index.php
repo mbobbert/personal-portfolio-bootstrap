@@ -95,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
  */
 $success = filter_input(INPUT_GET, 'success');
 
-var_dump($_POST);
+//var_dump($_POST);
 ?>
 
 <!DOCTYPE html>
