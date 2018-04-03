@@ -337,7 +337,7 @@ $success = filter_input(INPUT_GET, 'success');
                         <img class="card-img-top" src="img/drench.png" alt="Drench Board Game">
                         <div class="card-body">
                             <h3 class="card-title">Drench board game</h3>
-                            <p>An addictive board game challenging you to drench the board 1 color within 30 trials.</p>
+                            <p>An addictive board game challenging you to drench the board one color within 30 trials.</p>
                             <h4>Tech Stack:</h4>
                             <ul class="list-unstyled">
                                 <li class="badge badge-secondary">HTML</li>
@@ -361,14 +361,14 @@ $success = filter_input(INPUT_GET, 'success');
                                 <li class="badge badge-secondary">PHP</li>
                                 <li class="badge badge-secondary">SQL</li>
                             </ul>
-                            <button type="button" class="btn btn-primary btn-lg btn-block"><a href="http://mireilleb.data4you.cz/cinema-booking/dist/">Book seat</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-block"><a href="http://mireilleb.data4you.cz/cinema-booking/dist/">Book seat</a></button>
                         </div>
                     </article>
                 </div>
 
                 <div class="col-sm-6 col-md-4 my-portfolio-item">
                     <article class="card mb-4">
-                    <img class="card-img-top" src="img/laravellehomepage.png" alt="la ravelle">
+                    <img class="card-img-top" src="img/laravelle.png" alt="la ravelle">
                         <div class="card-body">
                             <h3 class="card-title">Final project</h3>
                             <p>La Ravelle aggregates beauty product ratings, cutting the decision time for career women to purchase a face serum.</p>
