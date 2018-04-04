@@ -5,7 +5,9 @@ error_reporting(E_ALL);
 /**
  * Initialization
  */
-$dbh = new PDO('mysql:host=localhost;dbname=mireilleb', 'mireilleb', 'wpwDoDV1_');
+$dbh = new PDO(
+    'mysql:host='.HOST.';dbname='.DBNAME, USERNAME, PASSWORD
+);
 
 /**
  * Define variables and set to empty values

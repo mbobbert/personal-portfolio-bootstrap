@@ -2,3 +2,5 @@
 /package-lock.json
 /phploy.*
 /dist
+/portfolio_page_requirements.pages
+env.php
