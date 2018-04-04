@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $firstNameErr = "First name is required";
   } else {
     $firstName = test_input($_POST["first_name"]);
-    if (!preg_match("/^[a-zA-Z ]*$/",$firstName)) {
+    if (!preg_match("/[^a-zA-Z ]*$/",$firstName)) {
         $firstNameErr = "Please insert letters and white space";
       }
   }
@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $lastNameErr = "Last name is required";
   } else {
     $lastName = test_input($_POST["last_name"]);
-    if (!preg_match("/^[a-zA-Z ]*$/",$lastName)) {
+    if (!preg_match("/[^a-zA-Z ]*$/",$lastName)) {
         $lastNameErr = "Please insert letters and white space";
       }
   }
