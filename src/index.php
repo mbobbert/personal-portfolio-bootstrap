@@ -84,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      {
         header('Location: ?success=no');
     } else {
-        $statement = $dbh->prepare('INSERT INTO messages (first_name, last_name, email, phone, message) VALUES (?,?,?,?,?');
+        $statement = $dbh->prepare('INSERT INTO messages (first_name, last_name, email, phone, message) VALUES (?,?,?,?,?)');
         $result = $statement->execute([$firstName, $lastName, $email, $phoneNumber, $message]);
         //var_dump($result);
 
