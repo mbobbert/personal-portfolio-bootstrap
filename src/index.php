@@ -363,7 +363,7 @@ $success = filter_input(INPUT_GET, 'success');
                                 <li class="badge badge-secondary">PHP</li>
                                 <li class="badge badge-secondary">SQL</li>
                             </ul>
-                            <button type="button" class="btn btn-primary btn-lg btn-block"><a href="http://mireilleb.data4you.cz/cinema-booking/src/">Book seat</a></button>
+                            <button type="button" class="btn btn-primary btn-lg btn-block"><a href="http://mireilleb.data4you.cz/cinema-booking/dist/">Book seat</a></button>
                         </div>
                     </article>
                 </div>
